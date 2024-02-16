@@ -10,6 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
    MyApp({super.key});
+   final ThemeController themeController = Get.put(ThemeController());
 
   // This widget is the root of your application.
   @override
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       // theme: Provider.of<ThemeController>(context).themeData,
       // darkTheme: Themes.darkTheme,
       // themeMode: themeController.theme,
-      theme: Get.find<ThemeController>().themeData,
+      theme:  themeController.themeData,
       // darkTheme: Themes.darkTheme,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -37,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final ThemeController themeController = Get.find();
+  final ThemeController themeController = Get.find<ThemeController>();
   int _counter = 0;
 
   void _incrementCounter() {
